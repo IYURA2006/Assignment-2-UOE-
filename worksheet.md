@@ -5,134 +5,116 @@
 - Date: 09/03/2025
 
 # Worksheet #
-<b>1. Introduction </b>
+<h2>1. Introduction</h2>
+<p>The following challenge requires developing a program to return the <strong>day number</strong> in the year for a given date in the format <code>YYYY/MM/DD</code>. The solution follows <strong>Object-Oriented Programming (OOP)</strong> principles, breaking logic into <strong>reusable classes and methods</strong>.</p>
 
-The following challenge requires to develop a program to return the day number in the year for a given date in the format YYYY/MM/DD. The solution is created by using Object-Oriented Programming (OOP) with the logic split into reusable classes and methods. Our solution is dealing with leap years, month durations, and looping through months to determine the number of days passed since January 1st of the year.
+<h2>2. Breaking Down the Problem</h2>
 
-<br>
-<br>
-<br>
+<h3>Handling the Input or Output</h3>
+<h4>Input Format:</h4>
+<ul>
+    <li>A date in the format <code>YYYY/MM/DD</code>, where:</li>
+    <ul>
+        <li><b>YYYY</b> is the year.</li>
+        <li><b>MM</b> is the month.</li>
+        <li><b>DD</b> is the day.</li>
+    </ul>
+</ul>
 
-<b>2. Breaking down the problem </b>
+<h4>Output Format:</h4>
+<p>A single integer representing the day number of the year, meaning how many days have passed since January 1st of that year.</p>
 
-<i>Handling the input or output</i>
+<h4>Example:</h4>
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Input</th>
+        <th>Output</th>
+    </tr>
+    <tr>
+        <td>2016/07/05</td>
+        <td>187</td>
+    </tr>
+    <tr>
+        <td>2000/03/28</td>
+        <td>88</td>
+    </tr>
+    <tr>
+        <td>0666/06/06</td>
+        <td>157</td>
+    </tr>
+    <tr>
+        <td>6789/10/11</td>
+        <td>284</td>
+    </tr>
+    <tr>
+        <td>0004/04/04</td>
+        <td>95</td>
+    </tr>
+    <tr>
+        <td>1337/07/13</td>
+        <td>194</td>
+    </tr>
+</table>
 
-Input Format:
+<h3>Handling Leap Years</h3>
+<p>A leap year affects February, making it 29 days instead of 28. Leap years are:</p>
+<ul>
+    <li>A year is a leap year if it is divisible by 4, but is not divisible by 100.</li>
+    <li>A year is a leap year if it is divisible by 400.</li>
+</ul>
 
-A date in the format YYYY/MM/DD, where:
-YYYY is the year.
-MM is the month.
-DD is the day.
+<h2>3. Implementation</h2>
 
-Output Format - a single integer representing the day number of the year, meaning how many days have passed since January 1st of that year.
+<h3><i>DateCalculator Class</i></h3>
+<ul>
+    <li>Stores year, month, and day as instance variables.</li>
+    <li><b>Methods:</b></li>
+    <ul>
+        <li><code>isLeapYear()</code>: Determines if the year is a leap year.</li>
+        <li><code>getDaysOfYear()</code>: Calculates the day number of the year.</li>
+    </ul>
+</ul>
 
-Example:
+<h3><i>Main Method</i></h3>
+<ul>
+    <li>Reads the date from user input (<code>YYYY/MM/DD</code>).</li>
+    <li>Parses the data into correct variables (e.g., day = <code>DD</code> and so on).</li>
+    <li>Passes the values to <code>DateCalculator</code>.</li>
+    <li>Prints the calculated day number.</li>
+</ul>
 
-Input	Output
+<h2>4. Step-by-Step Explanation</h2>
 
-2016/07/05 -> 187
+<h3>Handle User Input</h3>
+<ul>
+    <li>We use <code>Scanner</code> to read the date from the console.</li>
+    <li>The <code>split("/")</code> method separates the year, month, and day.</li>
+    <li>We convert them into integers using <code>Integer.parseInt()</code>.</li>
+</ul>
 
-2000/03/28 -> 88
+<h3>Check for Leap Year</h3>
+<ul>
+    <li>The <code>isLeapYear()</code> method follows the leap year rules.</li>
+    <li>A leap year is divisible by 4 but not by 100. It is also a leap year if it is divisible by 400.</li>
+</ul>
 
-0666/06/06 -> 157
+<h3>Calculate the Day Number</h3>
+<ul>
+    <li>We store month lengths in an array.</li>
+    <li>If the year is a leap year, February is set to 29 days.</li>
+    <li>The loop starts at January (index 0) and adds up all days until the given month and also adds the given day.</li>
+</ul>
 
-6789/10/11 -> 284
-
-0004/04/04 -> 95
-
-1337/07/13 -> 194
-
-<i> Handling the leap year </i>
-
-A leap year affects February, making it 29 days instead of 28. Leap years are:
-
--A year is a leap year if it is divisible by 4, but is not divisible by 100.
-
--The year is divisible by 400.
-
-<br>
-<br>
-<br>
-
-<b>3. Implementation </b>
-
-Instead of writing all the logic in the main method, we separate functionality into a class called DateCalculator.
-
-<i>DateCalculator class </i>
-
-Stores year, month, and day as instance variables.
-Methods: 
-
-isLeapYear(): Determines if the year is a leap year.
-
-getDaysOfYear(): Calculates the day number of the year.
-
-<br>
-<br>
-
-<i> Main method </i>
-
--Reads the date from user input (YYYY/MM/DD).
-
--Parses the data into correct variables (e.g day = DD and so on)
-
--Passes the values to DateCalculator.
-
--Prints the calculated day number.
-
-<br>
-<br>
-<br>
-
-<b> 4.  Step-by-step explanation </b>
-<br>
-<br>
-
-<i> Handle user input </i>
-
-We use Scanner to read the date from the console.
-
-The split("/") method separates the year, month, and day.
-
-We convert them into integers using Integer.parseInt().
-
-<br>
-
-<i> Check for leap year </i>
-
-The isLeapYear() method follows the leap year rules.
-
-A leap year is divisible by 4 but not by 100 and also it is leap year if it is divisible by 400.
-
-<br>
-
-<i> Calculate the day number </i>
-
-
-We store month lengths in an array.
-
-If the year is a leap year, February is set to 29 days.
-
-The loop starts at January (index 0) and adds up all days until the given month and also adds the given day.
-
-<br>
-
-<i> Summary </i>
-
-1	Read input (YYYY/MM/DD) using Scanner
-
-2	Split the string and convert to int values
-
-3	Check if the year is a leap year
-
-4	Store month lengths and adjust for leap years
-
-5	Loop through previous months and sum up days
-
-6	Add the given day to the total
-
-7	Print the final day number
-
+<h3>Summary</h3>
+<ol>
+    <li>Read input (<code>YYYY/MM/DD</code>) using <code>Scanner</code>.</li>
+    <li>Split the string and convert to int values.</li>
+    <li>Check if the year is a leap year.</li>
+    <li>Store month lengths and adjust for leap years.</li>
+    <li>Loop through previous months and sum up days.</li>
+    <li>Add the given day to the total.</li>
+    <li>Print the final day number.</li>
+</ol>
 # Original challenge question from CodeGolf #
 
 [Calculate the day number of the year](https://codegolf.stackexchange.com/questions/70400/calculate-the-day-number-of-the-year "Calculate the day number of the year")
@@ -200,10 +182,9 @@ body {
   /* Default sans serif */
   /*font-family: sans-serif;*/
   /* Default serif */
-  font-family: serif;
   /* Specific font with generic fall-back */
   /* font-family: "Calibri Light", sans-serif; */
-  /*font-family: "OpenDyslexic", sans-serif;*/
+  font-family: "OpenDyslexic", sans-serif;
 }
 pre,
 code,
@@ -211,10 +192,9 @@ pre code {
   /* line spacing */
   line-height: 150%;
   /* Default monospace */
-  font-family: monospace;
   /* Specific fixed-width font with generic fall-back */
   /*font-family: "Consolas", monospace;*/
-  /*font-family: "OpenDyslexicMono", monospace;*/
+  font-family: "OpenDyslexicMono", monospace;
 }
 ol,
 ol ol,

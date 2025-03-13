@@ -6,6 +6,28 @@
 - Tutor: Damini Iyer
 - Date: 09/03/2025
 
+Below is listed the resources used for this project:
+
+<b> Course materials </b>
+
+Lecture slides: Helped in the understanding of loops and OOP concepts in Java.
+
+
+<b> Online resources </b>
+
+Stack Overflow
+It was used to see how string splitting done, conditionals, and leap year calculation.
+
+
+<b> Tools used </b>
+
+IntelliJ IDEA – It was used to code and test the Java code.
+Lucidchart – It was used to create the flowchart representation of the program.
+
+<b> Help  </b>
+
+Friends – They helped me with discussing different ways to solve the problems.
+
 <STYLE>
 * { /* Don't leave any empty lines or IntelliJ might not render correctly */
   /* Text size */
